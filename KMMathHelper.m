@@ -74,4 +74,15 @@
     return rand;
 }
 
+- (float)getRadFromDeg: (float) deg {
+    float rad = (M_PI / 180) * deg;
+    return rad;
+}
+
+- (float)getDegFromRad: (float) rad {
+    float deg = (180 / M_PI) * rad;
+    return deg;
+}
+
+
 @end

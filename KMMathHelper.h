@@ -88,4 +88,31 @@
  *  @return 返回随机数
  */
 + (int)getRandBetween:(int)bottom and:(int)top;
+
+
+/**
+ *  角度转弧度
+ *
+ *  @param deg 角度(degree)
+ *
+ *  @return 弧度(radian)
+ */
+- (float)getRadFromDeg: (float) deg {
+    float rad = (M_PI / 180) * deg;
+    return rad;
+}
+
+
+/**
+ *  弧度转角度
+ *
+ *  @param rad 弧度(radian)
+ *
+ *  @return 角度(degree)
+ */
+- (float)getDegFromRad: (float) rad {
+    float deg = (180 / M_PI) * rad;
+    return deg;
+}
+
 @end

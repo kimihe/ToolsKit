@@ -9,8 +9,35 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+/**
+ *  右手系X-Y-Z
+ */
+typedef NS_ENUM(NSUInteger, KMAxisType) {
+    /**
+     *  <#Description#>
+     */
+    X = 0,
+    /**
+     *  <#Description#>
+     */
+    Y = 1,
+    /**
+     *  <#Description#>
+     */
+    Z = 2,
+};
+
+/**
+ *  有理数闭区间，通用区间待扩充
+ */
+struct KMMathInterval_RationalNumber {
+    CGFloat left;
+    CGFloat right;
+};
+
 @interface KMMathHelper : NSObject
 
+#pragma mark - 二维空间直角坐标系
 /**
  *  求二维空间两点的中点
  *
@@ -78,18 +105,42 @@
  */
 + (BOOL)point1:(CGPoint)point1 EqualToPoint2:(CGPoint)point2;
 
+/**
+ *  直接比较：判断两点间距离是否小于某值，某值使用真实的距离。判断时会比较距离的平方，建议使用平方比较。
+ *
+ *  @param p1 点1
+ *  @param p2 点1
+ *  @param d  真实的距离
+ *
+ *  @return 小于返回YES，大于等于返回NO
+ */
++ (BOOL)checkDistanceBetween:(CGPoint)p1 and:(CGPoint)p2 lessThan:(CGFloat)d;
+
 
 /**
- *  在闭区间内取随机数
+ *  平方比较：判断两点间距离是否小于某值，某值使用距离的平方。判断时会直接比较这个平方，可提高计算效率。
  *
- *  @param bottom 左端点
- *  @param top    右端点
+ *  @param p1 点1
+ *  @param p2 点1
+ *  @param squre  距离的平方
  *
- *  @return 返回随机数
+ *  @return 小于返回YES，大于等于返回NO
  */
-+ (int)getRandBetween:(int)bottom and:(int)top;
++ (BOOL)checkDistanceBetween:(CGPoint)p1 and:(CGPoint)p2 lessThanSqure:(CGFloat)squre;
 
 
+/**
+ *  判断二维平面直角坐标系下，两个矩形区域是否有重叠部分
+ *
+ *  @param rect1 矩形区域1
+ *  @param rect2 矩形区域2
+ *
+ *  @return 有重叠返回YES，无重叠返回NO
+ */
++ (BOOL)checkRect1:(CGRect)rect1 overlayWithRect2:(CGRect)rect2;
+
+
+# pragma mark - 弧度&角度
 /**
  *  角度转弧度
  *
@@ -97,10 +148,7 @@
  *
  *  @return 弧度(radian)
  */
-- (float)getRadFromDeg: (float) deg {
-    float rad = (M_PI / 180) * deg;
-    return rad;
-}
+- (float)getRadFromDeg: (float) deg;
 
 
 /**
@@ -110,9 +158,19 @@
  *
  *  @return 角度(degree)
  */
-- (float)getDegFromRad: (float) rad {
-    float deg = (180 / M_PI) * rad;
-    return deg;
-}
+- (float)getDegFromRad: (float) rad;
+
+
+
+# pragma mark- 随机数
+/**
+ *  在闭区间内取随机数
+ *
+ *  @param bottom 左端点
+ *  @param top    右端点
+ *
+ *  @return 返回随机数
+ */
++ (int)getRandBetween:(int)bottom and:(int)top;
 
 @end

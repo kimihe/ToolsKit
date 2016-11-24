@@ -14,15 +14,15 @@
  */
 typedef NS_ENUM(NSUInteger, KMAxisType) {
     /**
-     *  <#Description#>
+     *  X轴
      */
     X = 0,
     /**
-     *  <#Description#>
+     *  Y轴
      */
     Y = 1,
     /**
-     *  <#Description#>
+     *  Z轴
      */
     Z = 2,
 };

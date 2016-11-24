@@ -18,9 +18,26 @@
 
 
 /**
+ *  在红绿两色间随机返回
+ *
+ *  @return 返回的颜色
+ */
+
+
++ (UIColor *)randomTwoColor;;
+
+/**
+ *  在红绿蓝三种颜色中随机返回
+ *
+ *  @return 返回的颜色
+ */
++ (UIColor *)randomThreeColor;
+
+
+/**
  *  在五种常见的颜色中随机选取(红，绿，蓝，黄，紫)
  *
- *  @return 返回颜色
+ *  @return 返回的颜色
  */
 + (UIColor *)randomFiveColor;
 

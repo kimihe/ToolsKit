@@ -23,18 +23,43 @@
 
 }
 
++ (UIColor *)randomTwoColor
+{
+    switch (arc4random()%2) {
+            
+        case 0: return [UIColor redColor];
+        case 1: return [UIColor greenColor];
+            
+        default: return [UIColor blackColor];
+    }
+    
+}
+
++ (UIColor *)randomThreeColor
+{
+    switch (arc4random()%3) {
+            
+        case 0: return [UIColor redColor];
+        case 1: return [UIColor greenColor];
+        case 2: return [UIColor blueColor];
+            
+        default: return [UIColor blackColor];
+    }
+}
+
 + (UIColor *)randomFiveColor
 {
     switch (arc4random()%5) {
             
         case 0: return [UIColor redColor];
         case 1: return [UIColor blueColor];
-        case 2: return [UIColor yellowColor];
+        case 2: return [UIColor orangeColor];
         case 3: return [UIColor greenColor];
         case 4: return [UIColor purpleColor];
             
+        default: return [UIColor blackColor];
+            
     }
-    return [UIColor blackColor];
 }
 
 @end
